@@ -77,7 +77,7 @@ case "$dopip" in
 esac
 
 # 6. Shell command (idempotent refresh) ──────────────────────────────────────────
-RC="$HOME/.zshrc"; [ -n "$BASH_VERSION" ] && [ -z "$ZSH_VERSION" ] && RC="$HOME/.bashrc"
+RC="$HOME/.zshrc"; [ "$(basename -- "${SHELL:-/bin/zsh}")" = bash ] && RC="$HOME/.bashrc"
 MARK="# ── Frontier Knight · $NAME ──"
 existed=""
 if grep -qF "$MARK" "$RC" 2>/dev/null; then
